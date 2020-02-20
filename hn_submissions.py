@@ -43,11 +43,11 @@ for submission_id in submission_ids[:30]:
 submission_dicts = sorted(submission_dicts, key=itemgetter('comments'), reverse=True)
 
 titles, links, comms = [], [], [] # Used for the plot.
-for index,submission_dict in enumerate(submission_dicts):
+for submission_dict in submission_dicts:
     id = submission_dict['id']
     title = submission_dict['title']
     hyper = submission_dict['hn_link']
-    link = f"<a href='http://news.ycombinator.com/item?id={id}'>{index+1}</a>"
+    link = f"<a href='{hyper}'>{id}</a>"
     comm = submission_dict['comments']
     print(f"\nTitle: {title}")
     print(f"Discussion link: {submission_dict['hn_link']}")
