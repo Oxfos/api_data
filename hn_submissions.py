@@ -44,10 +44,9 @@ submission_dicts = sorted(submission_dicts, key=itemgetter('comments'), reverse=
 
 titles, links, comms = [], [], [] # Used for the plot.
 for submission_dict in submission_dicts:
-    id = submission_dict['id']
     title = submission_dict['title']
     hyper = submission_dict['hn_link']
-    link = f"<a href='{hyper}'>{id}</a>"
+    link = f"<a href='{hyper}'>{title}</a>"
     comm = submission_dict['comments']
     print(f"\nTitle: {title}")
     print(f"Discussion link: {submission_dict['hn_link']}")
@@ -64,7 +63,16 @@ data = [{
     'hovertext': titles,
 }]
 my_layout = {
-
+    'title': 'Most commented news on Hacker News',
+    'titlefont': {'size': 28},
+    'xaxis': {
+        'title': 'News title',
+        'titlefont': {'size': 24},
+    },
+    'yaxis': {
+        'title': 'Stars',
+        'titlefont': {'size': 24},
+    }
 }
 
 fig = {'data': data, 'layout': my_layout}
